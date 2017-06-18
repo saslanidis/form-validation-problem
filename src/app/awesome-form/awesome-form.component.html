@@ -1,0 +1,50 @@
+<form method='post' action='' #awesomeForm="ngForm" (ngSubmit)='submitForm(awesomeForm)'>
+    <h1 class='title'>Fill out this awesome form</h1>
+    <fieldset>
+        <h3>Your details</h3>
+        <p [ngClass]="{'email': true, 'error': !email.valid && awesomeForm.submitted}">
+            <label class='label' for='email'>Email</label>
+            <input type='text' id='email' name='email' #email='ngModel' [(ngModel)]='model.email' required email>
+        </p>
+        <p [ngClass]="{'error': !password.valid && awesomeForm.submitted}">
+            <label class='label' for='password'>Password</label>
+            <input class='error' type='password' id='password' name='username' required minlength='9'
+                   #password='ngModel' [(ngModel)]='model.password'>
+        </p>
+    </fieldset>
+    <fieldset>
+        <h3>Your animal</h3>
+        <p [ngClass]="{'error': !colour.valid && awesomeForm.submitted}">
+            <label class='label' for='colour'>
+                Colour
+            </label>
+            <select id='colour' name='colour' #colour='ngModel' [(ngModel)]='model.colour' required>
+                <option *ngFor='let c of model.colours' [ngValue]='c.value'>{{c.display}}</option>
+            </select>
+        </p>
+        <p [ngClass]="{'error': !model.hasAtLeastTwoAnimals && awesomeForm.submitted}">
+                <span class='label'>
+                    Animal
+                </span>
+
+            <span *ngFor='let animal of model.animals'>
+                <input type='checkbox' [name]='animal.value' [(ngModel)]='animal.isSelected'
+                       [ngModelOptions]='{standalone: true}'>
+                <label>
+                    {{animal.display}}
+                </label>
+            </span>
+        </p>
+        <p [ngClass]="{'type-tiger': true, 'error': model.isAnimalTiger && model.isTypeOfTigerEmpty && awesomeForm.submitted}">
+            <label class='label' for='tiger_type'>
+                Type of tiger
+            </label>
+            <input type='text' name='tiger_type' id='tiger_type' [(ngModel)]='model.typeOfTiger'>
+        </p>
+    </fieldset>
+    <fieldset>
+        <p>
+            <input class='submit-button' type='submit' value='Create account'>
+        </p>
+    </fieldset>
+</form>
