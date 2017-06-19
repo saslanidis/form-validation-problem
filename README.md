@@ -39,3 +39,28 @@ Beyond the problem statement, show us the consideration you have given to some o
 ## Submission
 
 Please email us a link to your fork of this repository, or a zip of your solution to `1337h4x0r@springload.co.nz`.
+
+# [Form validation solution]
+
+## Prerequisites
+
+The solution is making use of Angular and Angular CLI. Before you can execute the tests and the application please install 
+
+- Node.js (at least version 6.9.x)
+- npm (at least version 3.x.x)
+- npm package @angular/cli ('npm install -g @angular/cli')
+
+## How to run the application
+
+- Download the application
+- Go to the directory
+- Run 'npm install' - this will install all third party dependencies 
+- Run 'ng serve --open' - this will serve the application in a local webserver, open your browser and navigate to the application
+
+## How to run the unit tests
+
+Simply by running 'ng test' in your console.
+
+## How to run the end to end tests
+
+Make sure to run the application ('ng serve'), before starting the end to end tests with 'ng e2e'.
